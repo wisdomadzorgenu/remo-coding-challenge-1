@@ -3,9 +3,9 @@
 - Run `npm install`
 - If you are planning to use firebase, create a firebase project and add your config in `src/services/firebase`
 - Sample express server is added within this repo. Run `npm run start-server` to start the server in port `8000`. 
-- This server contains sample get and post requests and will be called in Login page from browser (Component: Auth.tsx)
+- This server contains sample get and post request apis and will be accessed in Login page from browser as an example (Component: Auth.tsx)
 - You are free to use either server and/or firebase for state management
-- Run `npm run start` to start the server. This will open the landing page with login option
+- Run `npm run start` to start the react web server. This will open the landing page with login button
 
 ## Requirements
 - Use google login/email login to authenticate user
