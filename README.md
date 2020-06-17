@@ -1,9 +1,9 @@
 # remo-coding-challenge-1
-- Fork this repo to your account
+- Fork this repo
 - Run `npm install`
 - If you are planning to use firebase, create a firebase project and add your config in `src/services/firebase`
 - Sample express server is added within this repo. Run `npm run start-server` to start the server in port `8000`. 
-- This server contains sample get and post request apis and will be accessed in Login page from browser as an example (Component: Auth.tsx)
+- This server contains sample get and post request apis and will be accessed in Login page from browser as an example (Component: `Auth.tsx`)
 - You are free to use either server and/or firebase for state management
 - Run `npm run start` to start the react web server. This will open the landing page with login button
 
@@ -30,8 +30,18 @@
   - If user refreshes the browser at any point of time, they should land on same table
   - At any point of time, one user can be in only one room
   - Max allowed in a table should be configurable ranging from 3 - 6
-  - When a table is full and new user tries to enter, show error
+  - When a table is full and new user tries to enter, show error notification
+  - Create a button in the `theater` page. On clicking this button, highlight the currently logged in user avatar with an animation
 
 - Functionality testing (Bonus)
   - How to test this feature in mass scale?
   - This conference map can have 100 people max. How as a developer can you test this with max capacity?
+  - You can explain this in  loom video, if you dont have time to implement.
+
+## Deliverables
+- Your github fork link
+- Create a loom video with:
+  - demo of the application
+  - Challenges you have faced and how you solved it
+  - How can you improve your code
+  - Comments on this test
