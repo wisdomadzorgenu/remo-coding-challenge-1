@@ -13,9 +13,11 @@
 - Convert the route `/theater` as authenticated i.e. user can go into this page only if he/she is logged in
 - Theater page
   - This page will have a conference map with tables as below
+  ![Map](https://github.com/RiotlySocial/remo-coding-challenge-1/blob/master/Map.png?raw=true)
   - Once user is authenticated, users will be redirected into this theater page
   - Create table DOM elements by accessing `tables` from the `TableConfig`. `first-table` is added as example. `19` tables are present in the configuration
   - Users can go into any table and their avatars will be shown as below.
+  ![Map with user avatars](https://github.com/RiotlySocial/remo-coding-challenge-1/blob/master/Map-with%20users.png?raw=true)
   - Assign a table to the user when they land on this page
     - Assignment logic
       - Loom video: https://www.loom.com/share/1b07226e01fe44ca9b9b52899ce8ebb8
