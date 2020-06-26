@@ -1,5 +1,5 @@
 # remo-coding-challenge-1
-- Fork this repo
+- Clone this repo
 - Run `npm install`
 - If you are planning to use firebase, create a firebase project and add your config in `src/services/firebase`
 - Sample express server is added within this repo. Run `npm run start-server` to start the server in port `8000`. 
@@ -39,7 +39,7 @@
   - You can explain this in  loom video, if you dont have time to implement.
 
 ## Deliverables
-- Your github fork link
+- Zip file containing the codebase (except node_modules)
 - Create a loom video with:
   - demo of the application
   - Challenges you have faced and how you solved it
