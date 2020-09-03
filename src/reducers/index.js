@@ -1,7 +1,7 @@
 
 import { combineReducers } from "redux";
 
-import data from "./gameDataReducer";
+import data from "./mainReducer";
 
 export default combineReducers({
   data
