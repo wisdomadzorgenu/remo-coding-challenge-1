@@ -1,26 +1,50 @@
 import React, { useEffect } from 'react';
 import Firebase from '../services/firebase';
-import { useHistory } from 'react-router-dom';
-import { sendGetRequest, sendPostRequest } from '../apis';
+import { useHistory,withRouter } from 'react-router-dom';
+import {connect} from "react-redux";
+import {updateUser} from "../actions/";
 
-const Auth: React.FC = () => {
+interface Props {
+   user:any,
+   updateUser:(user:any)=>void
+};
+
+const Auth: React.FC<Props> = (props) => {
   const history = useHistory();
+//   const [loginBtnClicked,updateBtnClick] = useState(false);
 
   useEffect(() => {
     Firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        // TODO: Store user details
-        history.push('/theater');
+         //update user in store
+         props.updateUser(user);
       }
     });
+  });
 
-    // Sample API requests
-    sendGetRequest(`sample-get-request?param=1`).then(response => console.log(response));
-    sendPostRequest(`sample-post-request`, {postParam: 1}).then(response => console.log(response));
-  }, []);
+  const goToMainPage = ()=>{
+      history.push('/theater');
+  }
+
   const redirect = () => {
-    const provider = new Firebase.auth.GoogleAuthProvider();
-    Firebase.auth().signInWithPopup(provider);
+      //if user is already authenticated, don't re-authenticate
+      if(props.user)
+         goToMainPage();
+      else {
+         const provider = new Firebase.auth.GoogleAuthProvider();
+         provider.setCustomParameters({
+            prompt: 'select_account'
+          });         
+         Firebase.auth().signInWithPopup(provider)
+            .then((result)=>{
+               if(result.user){
+                  //update user in store
+                  props.updateUser(result.user);
+
+                  goToMainPage();
+               }
+            })     
+      }
   };
 
   return ( 
@@ -34,9 +58,19 @@ const Auth: React.FC = () => {
       }}
     >
       <h1> Remo Coding Challenge Join Room </h1>
-      <button onClick={redirect}> Login With Google </button>
+      <button className="btn btn-primary" onClick={redirect}> Login With Google </button>
     </div> 
   );
 };
- 
-export default Auth;
+
+const mapStateToProps = (state:any)=>{
+   return {user:state.data.user}
+};
+
+const mapDispatchToProps = {
+   updateUser
+};
+
+export default withRouter(
+   connect(mapStateToProps,mapDispatchToProps)(Auth)
+);

@@ -1,14 +1,45 @@
 .remo-theater{
   margin-left: -378px;
-  margin-top: -300px;
+  margin-top: -240px;
 
+  .user-img.seat{
+     position: absolute;
+  }
+  .user-img {
+      width: 40px;
+      height: 40px;
+      border: 5px solid green;
+      border-radius: 50%;
+      transition: background-color 5s ease-in-out;
+   }  
+   .user-img.active{
+      border-color: yellow;
+   }
   .rt-app-bar {
     text-align: right;
-    padding: 1rem;
+    padding: 7px;
     position: fixed;
-    z-index: 1;
+    z-index: 10;
     width: 100%;
     box-sizing: border-box;
+    margin-top: 240px;    
+     .img-div, .text-div {
+       display:inline-block;
+    }
+    .text-div.first{
+      margin-right: 15px;      
+    }    
+    .text-div{
+      padding-left: 10px;      
+      position: relative;
+      top: 85%; 
+      -webkit-transform: translateY(-85%); 
+      -ms-transform: translateY(-85%);
+      transform: translateY(-85%);       
+      a.logout {
+         padding-left: 15px;
+     }
+    }
   }
 
   .rt-rooms {
